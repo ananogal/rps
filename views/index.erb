@@ -1,0 +1,10 @@
+<h1> Welcome!<h1>
+
+<% if @name == '' %>
+	<p>Please enter your name.</p>
+<% end %>
+
+<form action="/" method="post">
+	<input type="text" name="name">
+	<input type="submit" value="sign in">
+</form>
