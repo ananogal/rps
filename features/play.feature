@@ -3,10 +3,12 @@ Feature: 	Player selects an option
 			The player must choose an option
 
 
-	Scenario:	Player selects an option
+	Scenario:	Player selects the winner option
 				Given I am on the play page
 				When I choose an option
-				Then I should see the result of the game
+				Then I should see "You Win!!!!!"
 
-				
-
+	Scenario:	Player selects the looser option
+				Given I am on the play page
+				When I choose an option
+				Then I should see "You loose!"

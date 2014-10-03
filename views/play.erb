@@ -1,7 +1,19 @@
-<h1>Hi, <%= @name%>. </h1>
+<h1>Hi, <%= @name %>. </h1>
 
-<h3>Choose onr, please!</h3>
+<h3>Choose one, please!</h3>
 
-<input type='radio' name="rps" value='rock'>Rock</input>
-<input type='radio' name="rps" value='paper'>Paper</input>
-<input type='radio' name="rps" value='scissors'>Scissors</input>
+<form action="/play" method="post">
+	<input type='radio' name="rps" id="rps_rock" value='rock'>Rock</input>
+	<input type='radio' name="rps" id="rps_paper" value='paper'>Paper</input>
+	<input type='radio' name="rps" id="rps_scissors" value='scissors'>Scissors</input>
+	<input type="submit" value="Play"/>
+</form>
+
+<%if @is_winner != nil %>
+	<% if @is_winner %>
+		<h3> <%= @playerOption.capitalize %> beats <%= @computerOption%>. You Win!!!!!</h3>
+	<% else %>
+		<h3>Saddly <%= @computerOption %> beats <%= @playerOption%>. You loose!</h3>
+	<% end %>
+<% end %>
+
