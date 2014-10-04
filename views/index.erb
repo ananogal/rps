@@ -1,8 +1,10 @@
 <h1> Welcome!<h1>
 
-<% if @name == '' %>
-	<p>Please enter your name.</p>
+<% if session[:error] != '' %>
+	<p><%= session[:error] %></p>
 <% end %>
+
+<p>Please enter your name.</p>
 
 <form action="/" method="post">
 	<input type="text" name="name"/>

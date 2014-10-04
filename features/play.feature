@@ -6,14 +6,5 @@ Feature: 	Player selects an option
 	Scenario:	Player selects the winner option
 				Given I am on the play page
 				When I choose an option
-				Then I should see "You Win!!!!!"
+				Then I should see "Choose one, please!"
 
-	Scenario:	Player selects the looser option
-				Given I am on the play page
-				When I choose an option
-				Then I should see "You loose!"
-
-	Scenario:	Player selects the same option as the computer
-				Given I am on the play page
-				When I choose an option
-				Then I should see "It's a tie!"

@@ -18,3 +18,25 @@ end
 Then(/^I should be register to play RPS$/) do
   visit('/play')
 end
+
+Given(/^I am waiting for the secondplayer to join$/) do
+  register('name', "Ana")
+  visit('/welcome')
+end
+
+When(/^Another player signs in$/) do
+  register('name', "Peter")
+end
+
+When(/^I refresh the page$/) do
+  visit('/')
+end
+
+Then(/^I should go to play page$/) do
+  visit('/play')
+end
+
+def register(field, name)
+	visit('/')
+	fill_in(field, with: name)
+end

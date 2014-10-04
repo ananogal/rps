@@ -11,3 +11,9 @@ Feature:	Player registers to play RPS
 				Given I am on the homepage
 				When I enter my "name"
 				Then I should be register to play RPS
+
+	Scenario: 	Player must wait for another player to join the game
+				Given I am waiting for the secondplayer to join
+				When Another player signs in
+				And I refresh the page
+				Then I should go to play page
