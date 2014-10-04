@@ -12,3 +12,8 @@ Feature: 	Player selects an option
 				Given I am on the play page
 				When I choose an option
 				Then I should see "You loose!"
+
+	Scenario:	Player selects the same option as the computer
+				Given I am on the play page
+				When I choose an option
+				Then I should see "It's a tie!"

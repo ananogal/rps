@@ -27,12 +27,28 @@ class RSP < Sinatra::Base
 
 	post '/play' do 
 		@playerOption = params[:rps]
-		redirect('/play') if @playerOption == '' || @playerOption == nil
+
+		@is_winner = nil
+		if @playerOption == '' || @playerOption == nil 
+			set_message_and_redirect('Please select an option')
+		end
 		
+		@computerOption = GAME.generate_answer
+		
+		if @playerOption.to_sym == @computerOption
+			set_message_and_redirect("It's a tie!") 
+		end
+
+		session[:error] = ''
+		@is_winner = GAME.is_player_the_winner?(@playerOption, @computerOption)
+
 		@name = session[:name]
-		@computerOption = ([:rock, :paper, :scissors] - [@playerOption.to_sym]).sample
-		@is_winner = GAME.is_player_the_winner?(@playerOption.to_sym, @computerOption.to_sym)
 		erb :play
+	end
+
+	def set_message_and_redirect(msg)
+		session[:error] = msg
+		redirect('/play') 
 	end
 
   # start the server if ruby file executed directly

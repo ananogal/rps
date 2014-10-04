@@ -8,6 +8,9 @@
 	<input type='radio' name="rps" id="rps_scissors" value='scissors'>Scissors</input>
 	<input type="submit" value="Play"/>
 </form>
+<%if session[:error] != '' %>
+	<h3> <%=session[:error] %> </h3>
+<%end%>
 
 <%if @is_winner != nil %>
 	<% if @is_winner %>
