@@ -13,7 +13,8 @@ Feature:	Player registers to play RPS
 				Then I should be register to play RPS
 
 	Scenario: 	Player must wait for another player to join the game
-				Given I am waiting for the secondplayer to join
-				When Another player signs in
-				And I refresh the page
-				Then I should go to play page
+				Given I am register in as "Ana" in Ana's browser
+				When  I register in as "Peter" in Peter's browser 
+				Then  I should go to play page in Ana's browser
+
+	

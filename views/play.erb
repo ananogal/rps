@@ -1,22 +1,44 @@
 <h1>Hi, <%= @name %>. </h1>
 
-<h3>Choose one, please!</h3>
+<%if @is_winner == nil %>
+	<h3>Choose one, please!</h3>
+	<form action="/play" method="post">
+		<% if @selected_option == nil %>
+			<input type='radio' name="rps" id="rps_rock" value='rock'>Rock</input>
+			<input type='radio' name="rps" id="rps_paper" value='paper'>Paper</input>
+			<input type='radio' name="rps" id="rps_scissors" value='scissors'>Scissors</input>
+		<%elsif @selected_option == 'rock' %>
+			<input type='radio' name="rps" id="rps_rock" value='rock' checked="checked" >Rock</input>
+			<input type='radio' name="rps" id="rps_paper" value='paper'>Paper</input>
+			<input type='radio' name="rps" id="rps_scissors" value='scissors' >Scissors</input>
+		<%elsif @selected_option == 'paper'%>
+			<input type='radio' name="rps" id="rps_rock" value='rock'>Rock</input>
+			<input type='radio' name="rps" id="rps_paper" value='paper' checked="checked">Paper</input>
+			<input type='radio' name="rps" id="rps_scissors" value='scissors' >Scissors</input>
+		<%elsif @selected_option == 'scissors'%>
+			<input type='radio' name="rps" id="rps_rock" value='rock'>Rock</input>
+			<input type='radio' name="rps" id="rps_paper" value='paper'>Paper</input>
+			<input type='radio' name="rps" id="rps_scissors" value='scissors' checked="checked">Scissors</input>
+		<%end%>
 
-<form action="/play" method="post">
-	<input type='radio' name="rps" id="rps_rock" value='rock'>Rock</input>
-	<input type='radio' name="rps" id="rps_paper" value='paper'>Paper</input>
-	<input type='radio' name="rps" id="rps_scissors" value='scissors'>Scissors</input>
-	<input type="submit" value="Play"/>
-</form>
-<%if session[:error] != '' %>
-	<h3> <%=session[:error] %> </h3>
+		<input type="submit" value="Play"/>
+	</form>
+	<%if session[:message] != '' %>
+		<h3> <%=session[:message] %> </h3>
+	<%end%>
+
 <%end%>
 
 <%if @is_winner != nil %>
 	<% if @is_winner %>
-		<h3> <%= @playerOption.capitalize %> beats <%= @computerOption%>. You Win!!!!!</h3>
+		<h3> <%= @player_option.capitalize %> beats <%= @opponent_option%>. You Win!!!!!</h3>
 	<% else %>
-		<h3>Saddly <%= @computerOption %> beats <%= @playerOption%>. You loose!</h3>
+		<h3>Saddly <%= @opponent_option %> beats <%= @player_option%>. You loose!</h3>
 	<% end %>
+	<form action="/play_again" method="get">	
+		<input type="submit" value="Play again"/>
+	</form>
 <% end %>
+<meta http-equiv="refresh" content="10">
+
 

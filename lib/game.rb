@@ -1,7 +1,7 @@
 class Game
 	attr_reader :elements
 
-	attr_accessor :player1, :player2
+	attr_accessor :player1, :player2, :turn
 
 	def initialize 
 		@winner = nil
@@ -10,8 +10,8 @@ class Game
 		@elements = [:rock, :paper, :scissors]
 	end 
 
-	def is_player_the_winner?(player_opt, computer_opt)
-	 	@rules[player_opt.to_sym] == computer_opt.to_sym
+	def is_player_the_winner?(player_opt, opponent_opt)
+	 	@rules[player_opt.to_sym] == opponent_opt.to_sym
 	end
 
 	def generate_answer
@@ -19,11 +19,31 @@ class Game
 	end
 
 	def add_player(player)
-		@player1 != nil ? @player2 = player : @player1 = player unless has_two_players?
+		self.player1 != nil ? self.player2 = player : self.player1 = player unless has_two_players?
 	end
 
 	def has_two_players?
-		player1 != nil && player2 != nil
+		self.player1 != nil && self.player2 != nil
 	end
+
+	def turn
+		@turn ||= self.player1 
+	end 
+
+	def opponent(player)
+		player == self.player1 ? self.player2 : self.player1
+	end
+
+	def switch_turns
+		@turn == self.player1 ? @turn = self.player2 : @turn = self.player1
+	end
+
+	def can_declare_a_winner?
+		if self.player1 != nil && self.player2 != nil
+			self.player1.option != nil && self.player2.option != nil 
+		else
+			false
+		end
+	end	
 
 end

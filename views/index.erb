@@ -2,11 +2,12 @@
 
 <% if session[:error] != '' %>
 	<p><%= session[:error] %></p>
+<% else %>
+
+	<p>Please enter your name.</p>
+
+	<form action="/" method="post">
+		<input type="text" name="name"/>
+		<input type="submit" value="sign in"/>
+	</form>
 <% end %>
-
-<p>Please enter your name.</p>
-
-<form action="/" method="post">
-	<input type="text" name="name"/>
-	<input type="submit" value="sign in"/>
-</form>

@@ -3,8 +3,8 @@ require 'game.rb'
 describe Game  do
 
 	let(:game) { Game.new }
-	let(:player1){double :player1}
-	let(:player2){double :player2}
+	let(:player1){double :player1,:option => :rock, option: :rock }
+	let(:player2){double :player2, :option => :paper, option: :paper}
 	let(:player3){double :player3}
 
 	it 'should be able to inicialize' do
@@ -45,6 +45,38 @@ describe Game  do
 	it 'should generate an answer' do
 		answer = game.generate_answer
 		expect(game.elements.include?(answer)).to be true
+	end
+
+	it 'should know which player is in turn' do
+		game.add_player(player1)
+		expect(game.turn).to eq(player1) 
+	end 
+
+	context 'play' do
+
+		before do
+			game.add_player(player1)
+			game.add_player(player2) 
+		end
+
+		it 'should be able to select players opponent' do
+			expect(game.opponent(player2)).to eq(player1)
+		end
+
+		it 'should switch turns' do
+			game.turn
+			game.switch_turns
+			expect(game.turn).to eq(player2)
+		end 
+
+		it 'should be able to declare a winner' do
+			
+			expect(game.can_declare_a_winner?).to be true
+		end
+	end
+
+	it 'should return false if no players added' do
+		expect(game.can_declare_a_winner?).to be false 
 	end
 
 end
