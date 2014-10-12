@@ -10,11 +10,12 @@ end
 
 
 Given(/^I am on the homepage$/) do
+	Capybara.reset_session!
 	visit('/')
 end
 
 When(/^I enter my "(.*?)"$/) do |name|
-  fill_in('name', :with => name)
+  fill_in("name", :with => name)
 end
 
 Then(/^I should be register to play RPS$/) do

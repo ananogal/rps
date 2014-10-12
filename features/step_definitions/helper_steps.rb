@@ -7,5 +7,6 @@ end
 def register(field, name)
 	visit('/')
 	fill_in(field, with: name)
+	click_button('sign in')
 end
 
