@@ -33,7 +33,7 @@ class RSP < Sinatra::Base
 
 	get '/play' do
 		@name = session[:name]
-		@is_winner = nil
+		@win_result = nil
 		@selected_option = session[:option]
 
 		if GAME.can_declare_a_winner?
@@ -41,14 +41,14 @@ class RSP < Sinatra::Base
 			opponent = GAME.opponent(player)
 			@player_option = player.option
 			@opponent_option = opponent.option
-			@is_winner = GAME.is_player_the_winner?(@player_option, @opponent_option)
+			@win_result = GAME.rules_result(@player_option, @opponent_option)
 		end
 		erb :play
 	end
 
 	post '/play' do 
 		session[:option] = params[:rps]
-		@is_winner = nil
+		@win_result = nil
 		
 		player = select_current_player
 		player.option = session[:option]
@@ -58,7 +58,7 @@ class RSP < Sinatra::Base
 		set_message_and_redirect('Waiting for your opponent to make a move') if opponent.option == nil 
 		@player_option = player.option
 		@opponent_option = opponent.option
-		@is_winner = GAME.is_player_the_winner?(@player_option, @opponent_option) if GAME.can_declare_a_winner?
+		@win_result = GAME.rules_result(@player_option, @opponent_option) if GAME.can_declare_a_winner?
 
 		@name = session[:name]
 
