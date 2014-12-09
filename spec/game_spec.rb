@@ -42,6 +42,18 @@ describe Game  do
 		expect(game.is_player_the_winner?(:rock, :paper)).to be false
 	end
 
+	it 'should return tie if players have choosen the same option' do
+		expect(game.rules_result(:rock, :rock)).to eq("tie")
+	end
+
+	it 'should return win if players option beats opponent option' do
+		expect(game.rules_result(:rock, :scissors)).to eq("win")
+	end
+
+	it 'should return loose if opponent option beats players option' do
+		expect(game.rules_result(:rock, :rock)).to eq("loose")
+	end
+
 	it 'should generate an answer' do
 		answer = game.generate_answer
 		expect(game.elements.include?(answer)).to be true

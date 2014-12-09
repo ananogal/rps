@@ -14,6 +14,11 @@ class Game
 	 	@rules[player_opt.to_sym] == opponent_opt.to_sym
 	end
 
+	def rules_result(player_opt, opponent_opt)
+		return "tie" if player_opt == opponent_opt
+		return is_player_the_winner?(player_opt, opponent_opt) ? "win" : "loose"
+	end
+
 	def generate_answer
 		@elements.sample
 	end

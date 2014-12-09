@@ -1,6 +1,6 @@
 <h1>Hi, <%= @name %>. </h1>
 
-<%if @is_winner == nil %>
+<%if @win_result == nil %>
 	<h3>Choose one, please!</h3>
 	<form action="/play" method="post">
 		<% if @selected_option == nil %>
@@ -29,11 +29,13 @@
 
 <%end%>
 
-<%if @is_winner != nil %>
-	<% if @is_winner %>
+<%if @win_result != nil %>
+	<% if @win_result.eql?("win") %>
 		<h3> <%= @player_option.capitalize %> beats <%= @opponent_option%>. You Win!!!!!</h3>
-	<% else %>
+	<% elsif @win_result.eql?("loose")  %>
 		<h3>Saddly <%= @opponent_option %> beats <%= @player_option%>. You loose!</h3>
+	<%else%>
+		<h3>It's a tie!!!!!!!!</h3>
 	<% end %>
 	<form action="/play_again" method="get">	
 		<input type="submit" value="Play again"/>
