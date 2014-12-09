@@ -1,19 +1,14 @@
-<header>
-	<h1> Welcome to Rock, paper, scissors!</h1>
-</header>
-<main>
-<section id="errors">
+
+<section>
 	<% if session[:error] != '' %>
-		<p><%= session[:error] %></p>
+		<p class="error"><%= session[:error] %></p>
 	<% else %>
-		<p>Please enter your name.</p>
+		<p class"title">Please enter your name.</p>
 </section>
 <section id="sign-in" >
 	<form action="/" method="post">
 		<input type="text" name="name"/>
-		<input type="submit" value="sign in"/>
+		<input type="submit" value="Sign in"/>
 	</form>
 <% end %>
 </section>
-</main>
-<link>
