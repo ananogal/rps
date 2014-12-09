@@ -1,13 +1,19 @@
-<h1> Welcome!<h1>
-
-<% if session[:error] != '' %>
-	<p><%= session[:error] %></p>
-<% else %>
-
-	<p>Please enter your name.</p>
-
+<header>
+	<h1> Welcome!</h1>
+</header>
+<main>
+<section id="errors">
+	<% if session[:error] != '' %>
+		<p><%= session[:error] %></p>
+	<% else %>
+		<p>Please enter your name.</p>
+</section>
+<section id="sign-in" >
 	<form action="/" method="post">
 		<input type="text" name="name"/>
 		<input type="submit" value="sign in"/>
 	</form>
 <% end %>
+</section>
+</main>
+<link>
