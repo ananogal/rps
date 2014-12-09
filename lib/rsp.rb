@@ -5,6 +5,7 @@ require_relative 'player'
 class RSP < Sinatra::Base
 
 	set :views, Proc.new { File.join(root, '..',  "views") }
+	set :public_folder, Proc.new { File.join(root, "..", "public")}
 	enable  :sessions
 
 	GAME = Game.new

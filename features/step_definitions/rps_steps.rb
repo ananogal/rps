@@ -5,7 +5,7 @@ Given(/^I enter the homepage$/) do
 end
 
 Then(/^I see a welcome message "(.*?)"$/) do |arg1|
-  expect(page).to have_content("Welcome!")
+  expect(page).to have_content("Welcome to Rock, paper, scissors!")
 end
 
 Given(/^I am on the homepage$/) do

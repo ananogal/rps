@@ -5,7 +5,7 @@ Feature:	Player registers to play RPS
 
 	Scenario:	Player is greeted
 				Given I enter the homepage
-				Then I see a welcome message "Welcome!"
+				Then I see a welcome message "Welcome to Rock, paper, scissors!"
 
 	Scenario: Player register without a name
 				Given I am on the homepage
