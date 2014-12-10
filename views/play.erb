@@ -3,30 +3,36 @@
 </section>
 <%if @win_result == nil %>
 <section id='choices'>
-	<h3>Choose one, please!</h3>
+	<h3 id="choise">Choose one, please!</h3>
 	<form action="/play" method="post">
 		<% case @selected_option
 			when nil %>
-				<input type='radio' name="rps" id="rps_rock" value='rock'>Rock</input>
-				<input type='radio' name="rps" id="rps_paper" value='paper'>Paper</input>
-				<input type='radio' name="rps" id="rps_scissors" value='scissors'>Scissors</input>
+				<input type='radio' name="rps" id="rps_rock" value='rock'> 
+					<label for="rps_rock">Rock</label>
+				<input type='radio' name="rps" id="rps_paper" value='paper'>
+					<label for="rps_paper">Paper</label>
+				<input type='radio' name="rps" id="rps_scissors" value='scissors'>
+					<label for="rps_scissors">Scissors</label>
 			<%when 'rock' %>
-				<input type='radio' name="rps" id="rps_rock" value='rock' checked="checked" >Rock</input>
-				<input type='radio' name="rps" id="rps_paper" value='paper'>Paper</input>
-				<input type='radio' name="rps" id="rps_scissors" value='scissors' >Scissors</input>
+				<input type='radio' name="rps" id="rps_rock" value='rock' checked="checked" >
+					<label for="rps_rock">Rock</label>
+				<input type='radio' name="rps" id="rps_paper" value='paper'>
+					<label for="rps_paper">Paper</label>
+				<input type='radio' name="rps" id="rps_scissors" value='scissors' >
+					<label for="rps_scissors">Scissors</label>
 			<%when 'paper'%>
-				<input type='radio' name="rps" id="rps_rock" value='rock'>Rock</input>
-				<input type='radio' name="rps" id="rps_paper" value='paper' checked="checked">Paper</input>
-				<input type='radio' name="rps" id="rps_scissors" value='scissors' >Scissors</input>
+				<input type='radio' name="rps" id="rps_rock" value='rock'><label for="rps_rock">Rock</label>
+				<input type='radio' name="rps" id="rps_paper" value='paper' checked="checked"><label for="rps_paper">Paper</label>
+				<input type='radio' name="rps" id="rps_scissors" value='scissors' ><label for="rps_scissors">Scissors</label>
 			<%when 'scissors'%>
-				<input type='radio' name="rps" id="rps_rock" value='rock'>Rock</input>
-				<input type='radio' name="rps" id="rps_paper" value='paper'>Paper</input>
-				<input type='radio' name="rps" id="rps_scissors" value='scissors' checked="checked">Scissors</input>
+				<input type='radio' name="rps" id="rps_rock" value='rock'><label for="rps_rock">Rock</label>
+				<input type='radio' name="rps" id="rps_paper" value='paper'><label for="rps_paper">Paper</label>
+				<input type='radio' name="rps" id="rps_scissors" value='scissors' checked="checked"><label for="rps_scissors">Scissors</label>
 		<%end%>
 		<input type="submit" value="Play"/>
 	</form>
 	<%if session[:message] != '' %>
-		<h3> <%=session[:message] %> </h3>
+		<h3 id="msg"> <%=session[:message] %> </h3>
 	<%end%>
 <%end%>
 </section>
@@ -39,8 +45,8 @@
 	<%else%>
 		<h3>It's a tie!!!!!!!!</h3>
 	<% end %>
-	<form action="/play_again" method="get">	
-		<input type="submit" value="Play again"/>
+	<form id="form-play-again" action="/play_again" method="get">	
+		<input id="play-again" type="submit" value="Play again"/>
 	</form>
 <% end %>
 <meta http-equiv="refresh" content="10">

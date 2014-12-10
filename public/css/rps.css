@@ -18,10 +18,22 @@ h2{
 }
 
 h3{
-	margin-bottom:0.2em;
 	text-align: center;
-	font-size:1em;
+	font-size:1.5em;
 	color:#4D7A8C;
+}
+
+h3#choise{
+	font-size:0.8em;
+	margin-top:0.2em;
+	margin-bottom:0.7em;
+}
+
+h3#msg{
+	font-size:0.8em;
+	margin-top:1em;
+	margin-bottom:0.2em;
+	color:#BABF24;
 }
 
 section{
@@ -42,7 +54,13 @@ section#sign-in{
 
 section#choices, section#title{
 	margin:1.5em 0em 0em 0em;
+	font-size:1.5em;	
+	color:white;
 }
+
+section#choices label:before {  
+    border-radius: 0.5em;  
+}  
 
 form#form-sign-in{
 	border-style: solid;
@@ -52,6 +70,7 @@ form#form-sign-in{
 	margin-right:25%;
 	margin-left: 25%;
 }
+
 input[type=text] {
 	width:60%;
 	margin:1em 0.5em 1em 0.5em;
@@ -62,14 +81,39 @@ input[type=text] {
 }
 
 input[type=radio] {
-	width:10%;
-	margin:1em 0.5em 1em 0.5em;
-	padding:5px 5px 5px 20px;
-	font-size:0.6em;
-	border:none;
-	border-radius:1em;
+	display: none;
 }
 
+label {  
+    display: inline-block;  
+    cursor: pointer;  
+    position: relative;  
+    padding-left: 25px;  
+    margin-right: 15px; 
+}  
+
+label:before {  
+    content: "";  
+    display: inline-block;  
+  
+    width: 16px;  
+    height: 16px;  
+  
+    margin-right: 10px;  
+    position: absolute;  
+    left: 0;  
+    bottom: 1px;  
+    background-color: #aaa;  
+    box-shadow: inset 0px 2px 3px 0px rgba(0, 0, 0, .3), 0px 1px 0px 0px rgba(255, 255, 255, .8);  
+}  
+
+input[type=radio]:checked + label:before {  
+    content: "\2022";  
+    color: #f3f3f3;  
+    font-size: 30px;  
+    text-align: center;  
+    line-height: 18px;  
+}  
 input[type=submit]{
 	background-color:#F28322;
 	color:white;
@@ -80,6 +124,23 @@ input[type=submit]{
 	border-radius:1em;
 }
 
+form#form-play-again{
+	border-style: solid;
+	border-width:0.05em;
+	border-color:#4D7A8C;
+	border-radius:1em;
+	margin-top:3%; 
+	margin-left: 45%;
+}
+
+input[type=submit]#play-again{
+	width:8em;
+	height:1.7em;
+	font-size:1em;
+	border: none;
+	border-radius:1em;
+}
+
 .error{
-	color:red
+	color:#F24422
 }
