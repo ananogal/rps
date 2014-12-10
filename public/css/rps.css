@@ -9,6 +9,20 @@ h1{
 	font-size:5em;
 	color:#D3D929;
 }
+h2{
+	margin-top:0.5em;
+	margin-bottom:0.1em;
+	text-align: center;
+	font-size:1.5em;
+	color:#4D7A8C;
+}
+
+h3{
+	margin-bottom:0.2em;
+	text-align: center;
+	font-size:1em;
+	color:#4D7A8C;
+}
 
 section{
 	text-align: center;
@@ -17,11 +31,20 @@ section{
 	color:#BABF24;
 }
 
+section p {
+	margin-top:0.8em;
+	font-size:0.8em;
+}
+
 section#sign-in{
 	margin:0.5em 0em 0em 0em;
 }
 
-form{
+section#choices, section#title{
+	margin:1.5em 0em 0em 0em;
+}
+
+form#form-sign-in{
 	border-style: solid;
 	border-width:0.05em;
 	border-color:#4D7A8C;
@@ -37,6 +60,16 @@ input[type=text] {
 	border:none;
 	border-radius:1em;
 }
+
+input[type=radio] {
+	width:10%;
+	margin:1em 0.5em 1em 0.5em;
+	padding:5px 5px 5px 20px;
+	font-size:0.6em;
+	border:none;
+	border-radius:1em;
+}
+
 input[type=submit]{
 	background-color:#F28322;
 	color:white;
@@ -45,4 +78,8 @@ input[type=submit]{
 	font-size:0.5em;
 	border: none;
 	border-radius:1em;
+}
+
+.error{
+	color:red
 }

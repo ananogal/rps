@@ -50,7 +50,7 @@ class RSP < Sinatra::Base
 	post '/play' do 
 		session[:option] = params[:rps]
 		@win_result = nil
-		
+		@selected_option = session[:option]
 		player = select_current_player
 		player.option = session[:option]
 		opponent = GAME.opponent(player)

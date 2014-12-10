@@ -1,7 +1,9 @@
-<h1>Welcome, <%= @name %>!</h1>
-<% if GAME.has_two_players? %>
-	<p>Your oppunent turn, please wait</p>
-<% else %>
-	<p>Waiting for someone to play with you...</p>
-<% end %>
-<meta http-equiv="refresh" content="10">
+<section>
+	<h2>Welcome, <%= @name %>!</h2>
+	<% if GAME.has_two_players? %>
+		<p>Your oppunent turn, please wait</p>
+	<% else %>
+		<p>Waiting for someone to play with you...</p>
+	<% end %>
+	<meta http-equiv="refresh" content="10">
+</section>

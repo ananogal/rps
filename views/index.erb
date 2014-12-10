@@ -3,10 +3,10 @@
 	<% if session[:error] != '' %>
 		<p class="error"><%= session[:error] %></p>
 	<% else %>
-		<p class"title">Please enter your name.</p>
+		<p>Please enter your name.</p>
 </section>
 <section id="sign-in" >
-	<form action="/" method="post">
+	<form id="form-sign-in" action="/" method="post">
 		<input type="text" name="name"/>
 		<input type="submit" value="Sign in"/>
 	</form>
